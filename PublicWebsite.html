@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Justified Nav Template for Bootstrap</title>
+      <!-- Bootstrap core CSS -->
+      <link href="css/bootstrap.css" rel="stylesheet" />
+      <!-- Glyphicons --> 
+      <!-- Custom styles for this template -->
+      <link href="justified-nav.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="css/sticky-footer.css" rel="stylesheet" />
+      <!-- JQUERY -->
+      <script src="js/jquery.js"></script>
+      <!-- JQUERY END-->
+      <!-- JS-->
+      <script src="js/bootstrap.js"></script>
+      <!-- JS END-->
+      <!-- COLLAPSIBLE DIV SCRIPT -->
+      <script type="text/javascript">
+         jQuery(document).ready(function () {
+             jQuery(".eggs").hide();
+             //toggle the componenet with class msg_body
+             jQuery(".scrambled").click(function () {
+                 jQuery(this).next(".eggs").slideToggle(500);
+             });
+         });
+      </script>
+      <script type="text/javascript">
+         function currentYPosition() {
+             // Firefox, Chrome, Opera, Safari
+             if (self.pageYOffset) return self.pageYOffset;
+             // Internet Explorer 6 - standards mode
+             if (document.documentElement && document.documentElement.scrollTop)
+                 return document.documentElement.scrollTop;
+             // Internet Explorer 6, 7 and 8
+             if (document.body.scrollTop) return document.body.scrollTop;
+             return 0;
+         }
+         
+         
+         function elmYPosition(eID) {
+             var elm = document.getElementById(eID);
+             var y = elm.offsetTop;
+             var node = elm;
+             while (node.offsetParent && node.offsetParent != document.body) {
+                 node = node.offsetParent;
+                 y += node.offsetTop;
+             } return y;
+         }
+         
+         
+           function smoothScroll(eID) {
+         var startY = currentYPosition();
+         var stopY = elmYPosition(eID);
+         var distance = stopY > startY ? stopY - startY : startY - stopY;
+         if (distance < 100) {
+             scrollTo(0, stopY); return;
+         }
+         var speed = Math.round(distance / 100);
+         if (speed >= 20) speed = 20;
+         var step = Math.round(distance / 25);
+         var leapY = stopY > startY ? startY + step : startY - step;
+         var timer = 0;
+         if (stopY > startY) {
+             for ( var i=startY; i<stopY; i+=step ) {
+                 setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+                 leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+             } return;
+         }
+         for ( var i=startY; i>stopY; i-=step ) {
+             setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+             leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+         }
+           }
+         
+      </script>
+      <!-- END COLLAPSIBLE DIV SCRIPT -->
+      <style>
+         a {
+         cursor: pointer;
+         }
+         .navbar {
+         position: static;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- NAVBAR -->
+      <nav class="navbar navbar-default hidden-xs hidden-sm" role="navigation" style="margin-bottom:0px;position:fixed;width:100%">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+         </div>
+         <div class="container">
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+               <ul class="nav navbar-nav">
+                  <li><img style="max-height:50px;margin-top:5px;margin-bottom:5px" class="img-responsive" src="img/logo.png" /></li>
+                  <li><a href="javascript:smoothScroll('individuals');" style="margin-left:20px;margin-top:6px" >For Individuals</a></li>
+                  <li><a href="javascript:smoothScroll('advisors');" style="margin-top:6px" >For Advisors</a></li>
+                  <li><a href="javascript:smoothScroll('how')" style="margin-top:6px" >How It Works</a></li>
+				  <li><a href="/impactivist/" style="margin-top:6px">Be an Impactivist</a></li>
+               </ul>
+               <ul style="margin-top:5px" class="nav navbar-nav navbar-right">
+                  <li><a href="javascript:smoothScroll('contact')" class="btn btn-default" style="width:100px">Contact Us</a></li>
+                  <li><a class="btn" style="background-color: #154e67;color:white;margin-left:50px;width:100px">Log In</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- XS Navbar -->
+      <nav class="navbar nav-justified navbar-default hidden-md hidden-lg" role="navigation" style="margin-bottom:0px;position:fixed;width:100%">
+         <div class="navbar-header">
+            <img style="max-height:25px;margin-left:10px;margin-top:10px" class="img-responsive pull-left hidden-sm hidden-md hidden-lg" src="img/logo.png" />
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+         </div>
+         <div class="container">
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+               <li><img style="max-height:50px;margin-top:5px;margin-bottom:5px;margin-right:20px" class="img-responsive hidden-xs" src="img/logo.png" /></li>
+               <li><a href="javascript:smoothScroll('individuals');" style="margin-top:6px" >For Individuals</a></li>
+               <li><a href="javascript:smoothScroll('advisors');" style="margin-top:6px" >For Advisors</a></li>
+               <li><a href="javascript:smoothScroll('how')" style="margin-top:6px" >How It Works</a></li>
+			   <li><a href="/impactivist/" style="margin-top:6px">Be an Impactivist</a></li>
+            </ul>
+            <ul style="margin-top:2px;margin-bottom:2px;margin-left:0px" class="nav navbar-nav navbar-right">
+               <li>
+                  <div class="btn-group-vertical">
+                     <a class=" btn btn-sm" style="background-color:#154e67;color:white">Log In</a>
+                     <a class="btn btn-default btn-sm">Contact Us</a>
+                  </div>
+               </li>
+            </ul>
+            </>
+         </div>
+      </nav>
+      <!-- NAVBAR END -->
+      <div class="hidden-xs" style="background-color:#154e67;padding-top:85px;padding-bottom:35px">
+         <div class="container">
+            <div class="col-xs-12">
+               <h1 style="color:white;font-size:60px;text-align:center;margin-left:0px"> Your Portfolio Can Change the World.</h1>
+            </div>
+         </div>
+      </div>
+      <div class="hidden-sm hidden-md hidden-lg" style="background-color:#154e67;padding-top:85px;padding-bottom:35px">
+         <div class="container">
+            <div class="col-xs-12">
+               <h1 style="color:white;font-size:30px;text-align:center;margin-left:0px"> Your Portfolio Can Change the World.</h1>
+            </div>
+         </div>
+      </div>
+      <div style="background-color:#41a9d6;padding-bottom:30px">
+         <div class="container">
+            <div class="row">
+               <div class="hidden-xs hidden-sm col-md-offset-4 col-md-4">
+                  <img style="margin-left:20px" src="img/DarkBlueTriangle.png" />
+               </div>
+            </div>
+            <div style="margin-top:15px" class="row">
+               <div class="hidden-xs col-sm-6 ">
+                  <div class="hidden-xs col-sm-5">
+                     <img class="img-responsive" style="max-height:200px;margin-top:50px" src="img/LargeIndividuals.png" />
+                  </div>
+                  <div class="hidden-xs col-sm-7">
+                     <h1 style="color:white;font-size:50px">Individuals</h1>
+                     <p style="color:white;font-size:20px">Tell your financial advisor that you want to know more about impact investing.</p>
+                     <a href="javascript:smoothScroll('individuals')" class="btn btn-lg" style="background-color:#154e67;color:white;margin-top:20px">Learn More</a>
+                  </div>
+               </div>
+               <div class="hidden-xs col-sm-6">
+                  <div class="hidden-xs col-sm-5">
+                     <img class="img-responsive" style="max-height:200px;margin-top:50px" src="img/LargeAdvisor.png" />
+                  </div>
+                  <div style="padding-bottom:50px" class="hidden-xs col-sm-7">
+                     <h1 style="color:white;font-size:50px">Advisors</h1>
+                     <p style="color:white;font-size:20px">Your next generation of clients are demanding impact investments. Are you ready?</p>
+                     <a href="javascript:smoothScroll('advisors')" class="btn btn-lg" style="background-color:#154e67;color:white;margin-top:20px">Learn More</a>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="hidden-sm hidden-md hidden-lg col-sm-6 ">
+                  <div class="hidden-sm hidden-md hidden-lg col-sm-5">
+                     <img class="img-responsive" style="max-height:100px;margin-top:20px;margin-left:15px" src="img/LargeIndividuals.png" />
+                  </div>
+                  <div class="hidden-sm hidden-md hidden-lg col-sm-7">
+                     <h1 style="color:white;font-size:30px">Individuals</h1>
+                     <p style="color:white;font-size:15px">Tell your financial advisor that you want to know more about impact investing.</p>
+                     <a href="javascript:smoothScroll('individuals')" class="btn" style="background-color:#154e67;color:white;margin-top:20px">Learn More</a>
+                  </div>
+               </div>
+               <div class="hidden-sm hidden-md hidden-lg col-sm-6">
+                  <div class="hidden-sm hidden-md hidden-lg col-sm-5">
+                     <img class="img-responsive" style="max-height:100px;margin-top:20px;margin-left:15px" src="img/LargeAdvisor.png" />
+                  </div>
+                  <div class="hidden-sm hidden-md hidden-lg col-sm-7">
+                     <h1 style="color:white;font-size:30px">Advisors</h1>
+                     <p style="color:white;font-size:15px">Your next generation of clients are demanding impact investments. Are you ready?</p>
+                     <a href="javascript:smoothScroll('advisors')" class="btn" style="background-color:#154e67;color:white;margin-top:20px">Learn More</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div style="background-color:#777;padding-bottom:30px">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 hidden-xs">
+                  <img style="margin-left:20px" src="img/LightBlueTriangle.png" />
+               </div>
+            </div>
+            <div style="margin-top:50px;margin-bottom:50px" class="row hidden-xs">
+               <div class="col-sm-8 col-sm-offset-2">
+                  <h2 style="color:white">"One of the most pronounced trends among our clients is for their investments to not only <strong style="color: #154e67">earn a return</strong> but also to help <strong style="color: #154e67">drive social change</strong> in their communities and in society."</h2>
+                  <h3 style="color:white;margin-left:250px">-Andy Seig, Bank of America Merrill Lynch</h3>
+               </div>
+            </div>
+            <div style="margin-top:30px" class="row hidden-sm hidden-md hidden-lg">
+               <div class="col-xs-12">
+                  <h4 style="color:white">"One of the most pronounced trends among our clients is for their investments to not only <strong style="color: #154e67">earn a return</strong> but also to help <strong style="color: #154e67">drive social change</strong> in their communities and in society."</h4>
+                  <h5 style="color:white">-Andy Seig, Bank of America Merrill Lynch</h5>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div style="background-color:#154e67;padding-bottom:30px" id="individuals">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 hidden-xs">
+                  <img style="margin-left:20px" src="img/NavBarGreyTriangle.png" />
+               </div>
+            </div>
+            <div style="margin-top:15px" class="row hidden-xs">
+               <div class="col-sm-2">
+                  <img class="img-responsive" style="max-height:200px" src="img/LargeIndividuals.png" />
+               </div>
+               <div class="col-sm-10">
+                  <h1 style="font-size:60px;color:white">For Individuals</h1>
+               </div>
+            </div>
+            <div style="margin-top:15px" class="row hidden-sm hidden-md hidden-lg">
+               <div class="col-xs-12">
+                  <img class="img-responsive" style="max-height:100px;margin-left:15px" src="img/LargeIndividuals.png" />
+               </div>
+               <div class="col-xs-12">
+                  <h1 style="font-size:30px;color:white;margin-bottom:0px">For Individuals</h1>
+               </div>
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-7 hidden-xs">
+               <h2 style="color:white;padding-right:40px">Impact Investing provides you with an opportunity to earn a return while you fund world-changing companies, both locally and around the globe.</h2>
+               <div class="col-sm-6 col-md-6 col-lg-6">
+                  <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Microfinance.png" />
+                  <p style="color:white;font-size:30px;text-align:center">Microfinance</p>
+                  <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Housing.png" />
+                  <p style="color:white;font-size:30px;text-align:center">Affordable Housing</p>
+                  <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Education2.png" />
+                  <p style="color:white;font-size:30px;text-align:center">Education</p>
+               </div>
+               <div class="col-sm-6 col-md-6 col-lg-6">
+                  <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Water.png" />
+                  <p style="color:white;font-size:30px;text-align:center">Water & Sanitation</p>
+                  <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Energy.png" />
+                  <p style="color:white;font-size:30px;text-align:center">Renewable Energy</p>
+                  <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Agriculture.png" />
+                  <p style="color:white;font-size:30px;text-align:center">Agriculture</p>
+               </div>
+            </div>
+            <div class=" hidden-sm hidden-md hidden-lg">
+               <div class="col-xs-12">
+                  <h2 style="color:white;padding-right:15px;font-size:15px">Impact Investing provides you with an opportunity to earn a return while you fund world-changing companies, both locally and around the globe.</h2>
+                  <div class="col-xs-12">
+                     <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Microfinance.png" />
+                     <p style="color:white;font-size:20px;text-align:center">Microfinance</p>
+                     <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Housing.png" />
+                     <p style="color:white;font-size:20px;text-align:center">Affordable Housing</p>
+                     <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Education2.png" />
+                     <p style="color:white;font-size:20px;text-align:center">Education</p>
+                  </div>
+                  <div class="col-xs-12">
+                     <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Water.png" />
+                     <p style="color:white;font-size:20px;text-align:center">Water & Sanitation</p>
+                     <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Energy.png" />
+                     <p style="color:white;font-size:20px;text-align:center">Renewable Energy</p>
+                     <img class="img-responsive" style="max-height:50px;margin-left:auto;margin-right:auto" src="img/Agriculture.png" />
+                     <p style="color:white;font-size:20px;text-align:center">Agriculture</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-5">
+               <h1 style="color:white;font-size:35px">Tell your advisor about Impact Trader!</h1>
+               <form role="form">
+                  <div class="form-group">
+                     <label for="exampleInput1" style="color:white">Advisor Name</label>
+                     <input type="text" class="form-control" id="exampleInput1" placeholder="'Joe Smith'">
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputPassword1" style="color:white">Advisor Email</label>
+                     <input type="text" class="form-control" id="exampleInput2" placeholder="jsmith@advisorfirm.com">
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputPassword1" style="color:white">Personal Message</label>
+                     <input type="text" class="form-control" id="Text1" placeholder="Hi Joe, I want to add impact investments to my portfolio . . . ">
+                  </div>
+                  <button type="submit" class="btn btn-default">Send</button>
+               </form>
+            </div>
+         </div>
+      </div>
+      <div style="background-color:#41a9d6;padding-bottom:50px" id="advisors">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 hidden-xs">
+                  <img style="margin-left:20px" src="img/DarkBlueTriangle.png" />
+               </div>
+            </div>
+            <div style="margin-top:15px" class="row hidden-xs">
+               <div class="col-xs-2">
+                  <img class="img-responsive" style="max-height:200px" src="img/LargeAdvisor.png" />
+               </div>
+               <div class="col-xs-10">
+                  <h1 style="font-size:60px;color:white">For Advisors</h1>
+               </div>
+            </div>
+            <div style="margin-top:15px" class="row hidden-md hidden-sm hidden-lg">
+               <div class="col-xs-12">
+                  <img class="img-responsive" style="max-height:100px;margin-left:15px" src="img/LargeAdvisor.png" />
+               </div>
+               <div class="col-xs-12">
+                  <h1 style="font-size:30px;color:white">For Advisors</h1>
+               </div>
+            </div>
+            <div class="row">
+               <div class="hidden-xs col-sm-9" style="margin-top:20px">
+                  <div class="col-sm-4">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Learn.png" />
+                     <p style="color:white;font-size:25px;text-align:left"><strong style="color:#154e67">Learn</strong> about impact investing opportunities and start reviewing due-diligence info</p>
+                  </div>
+                  <div class="col-sm-4">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Buy.png" />
+                     <p style="color:white;font-size:25px;text-align:left"><strong style="color:#154e67">Buy</strong> impact investments using our software to make the process quick and painless</p>
+                  </div>
+                  <div class="col-sm-4">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Manage.png" />
+                     <p style="color:white;font-size:25px;text-align:left"><strong style="color:#154e67">Manage</strong> your clients' impact investments using your standard portfolio management software</p>
+                  </div>
+               </div>
+               <div class="hidden-sm hidden-md hidden-lg col-xs-12" style="margin-top:20px">
+                  <div class="col-xs-12">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Learn.png" />
+                     <p style="color:white;font-size:15px;text-align:left"><strong style="color:#154e67">Learn</strong> about impact investing opportunities and start reviewing due-diligence info</p>
+                  </div>
+                  <div class="col-xs-12">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Buy.png" />
+                     <p style="color:white;font-size:15px;text-align:left"><strong style="color:#154e67">Buy</strong> impact investments using our software to make the process quick and painless</p>
+                  </div>
+                  <div class="col-xs-12">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Manage.png" />
+                     <p style="color:white;font-size:15px;text-align:left"><strong style="color:#154e67">Manage</strong> your clients' impact investments using your standard portfolio management software</p>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-3">
+                  <h2 style="color:white">
+                     Join our Wait List<br />
+                     <p>(Advisors only)</p>
+                  </h2>
+                  <form role="form">
+                     <div class="form-group">
+                        <label for="exampleInput1" style="color:white">Advisor Name</label>
+                        <input type="text" class="form-control" id="Text2" placeholder="'Joe Smith'">
+                     </div>
+                     <div class="form-group">
+                        <label for="exampleInputPassword1" style="color:white">Advisor Email</label>
+                        <input type="text" class="form-control" id="Text3" placeholder="jsmith@advisorfirm.com">
+                     </div>
+                     <button type="submit" class="btn btn-lg btn-default">Submit</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div style="background-color:#777;padding-bottom:80px">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 hidden-xs">
+                  <img style="margin-left:20px" src="img/LightBlueTriangle.png" />
+               </div>
+            </div>
+            <div style="margin-top:50px" class="row hidden-xs">
+               <div class="col-sm-8 col-sm-offset-2">
+                  <h2 style="color:white">"We believe that <strong style="color: #154e67">impact investing</strong> will reveal itself to be one of the <strong style="color: #154e67">most powerful changes</strong> within the asset management industry in the years to come."</h2>
+                  <h3 style="color:white;margin-left:100px">-JP Morgan's 'Impact Investing: An Emerging Asset Class'</h3>
+               </div>
+            </div>
+            <div style="margin-top:50px" class="row hidden-sm hidden-md hidden-lg">
+               <div class="col-xs-12">
+                  <h4 style="color:white">"We believe that <strong style="color: #154e67">impact investing</strong> will reveal itself to be one of the <strong style="color: #154e67">most powerful changes</strong> within the asset management industry in the years to come."</h4>
+                  <h5 style="color:white">-JP Morgan's 'Impact Investing: An Emerging Asset Class'</h5>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div style="background-color:#154e67;padding-bottom:80px" id="how">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 hidden-xs">
+                  <img style="margin-left:20px" src="img/NavBarGreyTriangle.png" />
+               </div>
+            </div>
+            <div style="margin-top:15px" class="row hidden-xs">
+               <div class="col-sm-2">
+                  <img class="img-responsive" style="max-height:200px" src="img/HowItWorks2.png" />
+               </div>
+               <div class="col-sm-10">
+                  <h1 style="font-size:60px;color:white">How it Works</h1>
+               </div>
+            </div>
+            <div style="margin-top:15px" class="row hidden-md hidden-sm hidden-lg">
+               <div class="col-xs-12">
+                  <img class="img-responsive" style="max-height:100px;margin-left:15px" src="img/HowItWorks2.png" />
+               </div>
+               <div class="col-xs-12">
+                  <h1 style="font-size:30px;color:white">How it Works</h1>
+               </div>
+            </div>
+            <div class="row hidden-xs">
+               <div class="col-sm-12" style="margin-top:20px">
+                  <div class="col-sm-4">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Consolidation.png" />
+                     <h2 style="color:white;text-align:center;font-size:40px">Consolidation</h2>
+                     <p style="color:white;font-size:25px;text-align:center">Access the entire universe of impact investment offerings through a single platform.</p>
+                  </div>
+                  <div class="col-sm-4">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Automation.png" />
+                     <h2 style="color:white;text-align:center;font-size:40px">Automation</h2>
+                     <p style="color:white;font-size:25px;text-align:center">Instead of tons of paperwork, overnight envelopes, and spreadsheets, we fill out e-docs with your CRM data and provide full e-Signature workflows.</p>
+                  </div>
+                  <div class="col-sm-4">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Integration2.png" />
+                     <h2 style="color:white;text-align:center;font-size:40px">Integration</h2>
+                     <p style="color:white;font-size:25px;text-align:center">With data feeds into your normal portfolio management software, we make it easy for you to manage assets held at a specialty custodian.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="row hidden-sm hidden-md hidden-lg">
+               <div class="col-xs-12" style="margin-top:20px">
+                  <div class="col-xs-12">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Consolidation.png" />
+                     <h2 style="color:white;text-align:center;font-size:30px">Consolidation</h2>
+                     <p style="color:white;font-size:15px;text-align:center">Access the entire universe of impact investment offerings through a single platform.</p>
+                  </div>
+                  <div class="col-xs-12">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Automation.png" />
+                     <h2 style="color:white;text-align:center;font-size:30px">Automation</h2>
+                     <p style="color:white;font-size:15px;text-align:center">Instead of tons of paperwork, overnight envelopes, and spreadsheets, we fill out e-docs with your CRM data and provide full e-Signature workflows.</p>
+                  </div>
+                  <div class="col-xs-12">
+                     <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/Integration2.png" />
+                     <h2 style="color:white;text-align:center;font-size:30px">Integration</h2>
+                     <p style="color:white;font-size:15px;text-align:center">With data feeds into your normal portfolio management software, we make it easy for you to manage assets held at a specialty custodian.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div style="background-color:#41a9d6;padding-bottom:80px" id="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 hidden-xs">
+                  <img style="margin-left:20px" src="img/DarkBlueTriangle.png" />
+               </div>
+            </div>
+            <div style="margin-top:15px" class="row hidden-xs">
+               <div class="col-sm-2">
+                  <img class="img-responsive" style="max-height:200px" src="img/ContactUs.png" />
+               </div>
+               <div class="col-sm-10">
+                  <h1 style="font-size:60px;color:white">Contact Us!</h1>
+               </div>
+            </div>
+            <div style="margin-top:15px" class="row hidden-sm hidden-md hidden-lg">
+               <div class="col-xs-12">
+                  <img class="img-responsive" style="max-height:100px;margin-left:15px" src="img/ContactUs.png" />
+               </div>
+               <div class="col-xs-12">
+                  <h1 style="font-size:30px;color:white">Contact Us!</h1>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-12 col-sm-3" style="margin-bottom:20px">
+                  <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/LargeIndividuals.png" />
+                  <h2 style="color:white">Tell your advisor about us</h2>
+                  <form role="form">
+                     <div class="form-group">
+                        <label for="exampleInput1" style="color:white">Advisor Name</label>
+                        <input type="text" class="form-control" id="Text6" placeholder="'Joe Smith'">
+                     </div>
+                     <div class="form-group">
+                        <label for="exampleInputPassword1" style="color:white">Advisor Email</label>
+                        <input type="text" class="form-control" id="Text7" placeholder="jsmith@advisorfirm.com">
+                     </div>
+                     <div class="form-group">
+                        <label for="exampleInputPassword1" style="color:white">Personal Message</label>
+                        <input type="text" class="form-control" id="Text8" placeholder="Hi Joe, I want to add impact investments to my portfolio . . . ">
+                     </div>
+                     <button type="submit" class="btn btn-lg btn-default">Send</button>
+                  </form>
+               </div>
+               <div class="col-xs-12 col-sm-3">
+                  <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto" src="img/LargeAdvisor.png" />
+                  <h2 style="color:white">
+                     Join our Wait List<br />
+                     <p>(Advisors only)</p>
+                  </h2>
+                  <form role="form">
+                     <div class="form-group">
+                        <label for="exampleInput1" style="color:white">Advisor Name</label>
+                        <input type="text" class="form-control" id="Text4" placeholder="'Joe Smith'">
+                     </div>
+                     <div class="form-group">
+                        <label for="exampleInputPassword1" style="color:white">Advisor Email</label>
+                        <input type="text" class="form-control" id="Text5" placeholder="jsmith@advisorfirm.com">
+                     </div>
+                     <button type="submit" class="btn btn-lg btn-default">Submit</button>
+                  </form>
+               </div>
+               <div class="col-xs-12 col-sm-3">
+                  <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto;margin-top:22px" src="img/Updates.png" />
+                  <h2 style="color:white">Subscribe to Email Updates</h2>
+                  <form role="form">
+                     <div class="form-group">
+                        <label for="exampleInput1" style="color:white">Your Name</label>
+                        <input type="text" class="form-control" id="Text9" placeholder="'Joe Smith'">
+                     </div>
+                     <div class="form-group">
+                        <label for="exampleInputPassword1" style="color:white">Your Email</label>
+                        <input type="text" class="form-control" id="Text10" placeholder="jsmith@advisorfirm.com">
+                     </div>
+                     <button type="submit" class="btn btn-lg btn-default">Submit</button>
+                  </form>
+               </div>
+               <div class="col-xs-12 col-sm-3">
+                  <img class="img-responsive" style="max-height:150px;margin-left:auto;margin-right:auto;margin-top:22px" src="img/SendEmail.png" />
+                  <h2 style="color:white">Email or Call Us</h2>
+                  <h3 style="color:#154e67;margin-top:73px">Sales@ImpactTrader.com</h3>
+                  <address style="color:white;font-size:20px;margin-top:40px">
+                     <strong>Impact Trader, Inc.</strong><br>
+                     1877 Broadway, Suite 100<br>
+                     Boulder, CO 80302<br>
+                     <abbr title="Phone">P:</abbr> (828) 242-4806
+                  </address>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div style="background-color:#777;padding-bottom:20px">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 hidden-xs">
+                  <img style="margin-left:20px" src="img/LightBlueTriangle.png" />
+               </div>
+            </div>
+            <div style="margin-top:50px" class="row">
+               <p style="color:white;font-size:15px;text-align:center">&#169; Impact Trader, 2014</p>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
